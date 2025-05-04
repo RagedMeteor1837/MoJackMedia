@@ -28,22 +28,40 @@
       background: url('https://i.imgur.com/UDu5HRr.jpg') center/cover no-repeat;
       padding: 4rem 2rem;
       text-align: center;
+      position: relative;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    header h1,
+    header p {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin: 0;
-      color: white;
     }
     header p {
-      color: white;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
     }
     nav {
       background: var(--card);
       padding: 1rem;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 2rem;
+      flex-wrap: wrap;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     nav a {
@@ -55,12 +73,9 @@
       color: var(--accent);
     }
     .theme-switch-wrapper {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
       display: flex;
       align-items: center;
-      z-index: 100;
+      gap: 0.5rem;
     }
     .light-switch {
       width: 40px;
@@ -97,31 +112,42 @@
     }
     .quick-links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
+      justify-items: center;
       margin-top: 2rem;
     }
     .quick-links a {
-      display: block;
       background: var(--card);
       padding: 2rem;
       border-radius: 10px;
       text-decoration: none;
       color: var(--text);
       font-weight: bold;
-      transition: transform 0.2s;
+      transition: transform 0.2s, color 0.2s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      width: 90%;
+      text-align: center;
+    }
+    .quick-links a span {
+      color: var(--text);
+    }
+    .quick-links a:hover span {
+      color: var(--accent);
     }
     .quick-links a:hover {
       transform: translateY(-5px);
-      color: var(--accent);
     }
     footer {
-      background: #0f1a2b; /* dark navy blue */
+      background: #0f1a2b;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
       color: white;
-      margin-top: 3rem;
+      width: 100%;
+      margin-top: 4rem;
+      position: relative;
     }
     footer a {
       color: var(--accent);
@@ -135,44 +161,41 @@
       document.documentElement.setAttribute('data-theme', 'dark');
     }
   </script>
-  <div class="theme-switch-wrapper">
-    <span style="margin-right: 0.5rem; font-size: 0.9rem;">Light/Dark</span>
-    <div class="light-switch" id="theme-toggle"></div>
-  </div>
 
-  <header style="position: relative;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
-    <div style="position: relative; z-index: 1; padding: 4rem 2rem;">
-      <h1 style="font-size: 3.5rem; color: white; margin: 0; text-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);">MoJack Media</h1>
-      <p style="font-size: 1.4rem; color: white; margin: 0.5rem 0 0; text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);">Unlocking the World – One Story at a Time</p>
-    </div>
-  </header>
+  <header>
+    <h1>MoJack Media</h1>
+    <p>Unlocking the World – One Story at a Time</p>
   </header>
 
   <nav>
-    <a href="travel.html">Travel</a> <!-- Link to future Travel section -->
-    <a href="history.html">History</a> <!-- Link to future History section -->
-    <a href="creative.html">Stories</a> <!-- Link to future Creative section -->
-    <a href="about.html">About</a> <!-- Link to future About section -->
+    <a href="travel.html">Travel</a>
+    <a href="history.html">History</a>
+    <a href="creative.html">Stories</a>
+    <a href="about.html">About</a>
+    <div class="theme-switch-wrapper">
+      <span style="font-size: 0.9rem;">Light/Dark</span>
+      <div class="light-switch" id="theme-toggle"></div>
+    </div>
   </nav>
 
   <main>
-    <div class="intro">
-      <h2>Welcome to MoJack Media</h2>
-      <p>From highland hikes to creative flights, MoJack Media captures every adventure, insight, and imagination. Dive into our categories below and explore what the world—and we—have to offer.</p>
-    </div>
-
-    <div class="quick-links">
-      <a href="FastlaneContents.html">🚗 50 in the Fastlane</a> <!-- Corrected link to match deployed filename --> <!-- Links to Fastlane contents page -->
-      <a href="travel.html">🌍 My Journeys</a>
-      <a href="history.html">🏛 Historical Curiosities</a>
-      <a href="creative.html" style="grid-column: span 3; justify-self: center; width: 93%;">✍️ Creative Stories</a>
-    </div>
+    <section style="background: var(--card); padding: 2rem; border-radius: 12px; max-width: 900px; margin: 2rem auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+      <div class="intro">
+        <h2>Welcome to MoJack Media</h2>
+        <p>From highland hikes to creative flights, MoJack Media captures every adventure, insight, and imagination. Dive into our categories below and explore what the world—and we—have to offer.</p>
+      </div>
+      <div class="quick-links">
+        <a href="FastlaneContents.html">🚗 <span>50 in the Fastlane</span></a>
+        <a href="travel.html">🌍 <span>My Journeys</span></a>
+        <a href="history.html">🏛 <span>Historical Curiosities</span></a>
+        <a href="creative.html">✍️ <span>Creative Stories</span></a>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>© 2025 MoJack Media | Contact us at 
-      <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a> <!-- Change this line to update email -->
+      <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a>
       | Follow us on <a href="https://www.instagram.com/mojack_media" target="_blank">Instagram</a>
     </p>
   </footer>
