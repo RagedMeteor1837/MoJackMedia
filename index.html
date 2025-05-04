@@ -153,6 +153,16 @@
       color: var(--accent);
       text-decoration: none;
     }
+
+    /* Responsive Fix */
+    @media (max-width: 768px) {
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+      .quick-links a {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
