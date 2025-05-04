@@ -127,7 +127,7 @@
       transition: transform 0.2s, color 0.2s;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       display: inline-block;
-      width: 90%;
+      width: 80%;
       text-align: center;
     }
     .quick-links a span {
@@ -140,19 +140,14 @@
       transform: translateY(-5px);
     }
     footer {
-      background: #0f1a2b;
+      background: #0a0f2c;
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: white;
+      padding: 1rem;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-top: 2rem;
       width: 100%;
-      margin-top: 4rem;
       position: relative;
-    }
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
 
     /* Responsive Fix */
     @media (max-width: 768px) {
@@ -160,8 +155,15 @@
         grid-template-columns: 1fr;
       }
       .quick-links a {
-        width: 100%;
+        width: 80%;
       }
+    }
+      footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+      footer p {
+      color: white;
     }
   </style>
 </head>
@@ -204,9 +206,9 @@
   </main>
 
   <footer>
-    <p>© 2025 MoJack Media | Contact us at 
-      <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a>
-      | Follow us on <a href="https://www.instagram.com/mojack_media" target="_blank">Instagram</a>
+    <p style="color: white;">© 2025 MoJack Media | Contact us at 
+      <a href="mailto:mojackmedia.blogs@gmail.com" style="color: var(--accent); text-decoration: none;">mojackmedia.blogs@gmail.com</a>
+      | Follow us on <a href="https://www.instagram.com/mojack_media" target="_blank" style="color: var(--accent); text-decoration: none;">Instagram</a>
     </p>
   </footer>
 
