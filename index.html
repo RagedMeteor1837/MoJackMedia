@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoJack Media</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -12,93 +12,56 @@
       --card: #ffffff;
       --accent: #00c9a7;
     }
-
     [data-theme="dark"] {
       --bg: #121212;
       --text: #f0f0f0;
       --card: #1f1f1f;
       --accent: #00c9a7;
     }
-
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
     }
-
-    .header-container {
-      position: relative;
-      height: 400px;
-      overflow: hidden;
-    }
-
-    .header-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    header {
+      background: url('https://i.imgur.com/UDu5HRr.jpg') center/cover no-repeat;
+      padding: 4rem 2rem;
       text-align: center;
-      background: rgba(0, 0, 0, 0.4);
-      color: white;
     }
-
-    .header-content h1 {
+    header h1 {
       font-size: 3rem;
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      color: white;
     }
-
-    .header-content p {
+    header p {
+      color: white;
       font-size: 1.2rem;
-      margin-top: 0.5rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
-
     nav {
       background: var(--card);
       padding: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
       display: flex;
       justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      gap: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-
     nav a {
-      margin: 0 1rem;
-      text-decoration: none;
       color: var(--text);
+      text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: var(--accent);
     }
-
     .theme-switch-wrapper {
-      margin-left: 1rem;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
       display: flex;
       align-items: center;
+      z-index: 100;
     }
-
     .light-switch {
       width: 40px;
       height: 22px;
@@ -106,9 +69,7 @@
       border-radius: 20px;
       position: relative;
       cursor: pointer;
-      transition: background 0.4s;
     }
-
     .light-switch::before {
       content: "";
       position: absolute;
@@ -120,76 +81,51 @@
       border-radius: 50%;
       transition: transform 0.4s;
     }
-
     .light-switch.on {
       background: var(--accent);
     }
-
     .light-switch.on::before {
       transform: translateX(18px);
     }
-
     main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 2rem;
+      text-align: center;
     }
-
-    .intro-section {
+    .intro {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .quick-links a {
+      display: block;
       background: var(--card);
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .intro-section h2 {
-      margin-top: 0;
-      font-size: 2rem;
-      color: var(--text);
-    }
-
-    .intro-section p {
-      font-size: 1.1rem;
-      color: var(--text);
-    }
-
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .quick-link {
-      background: var(--card);
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.2s ease;
-      flex: 1 1 200px;
-    }
-
-    .quick-link:hover {
-      transform: translateY(-5px);
-    }
-
-    .quick-link a {
       text-decoration: none;
       color: var(--text);
-      font-weight: 600;
-      display: block;
+      font-weight: bold;
+      transition: transform 0.2s;
     }
-
+    .quick-links a:hover {
+      transform: translateY(-5px);
+      color: var(--accent);
+    }
     footer {
-      background: #1e1e2f;
-      color: white;
+      background: #222;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: white;
       margin-top: 3rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
     }
   </style>
 </head>
@@ -199,47 +135,42 @@
       document.documentElement.setAttribute('data-theme', 'dark');
     }
   </script>
-
-  <div class="header-container">
-    <img src="https://i.imgur.com/UDu5HRr.jpg" alt="Snowy Mountain">
-    <div class="header-content">
-      <h1>MoJack Media</h1>
-      <p>Unlocking the World – One Story at a Time</p>
-    </div>
+  <div class="theme-switch-wrapper">
+    <span style="margin-right: 0.5rem; font-size: 0.9rem;">Light/Dark</span>
+    <div class="light-switch" id="theme-toggle"></div>
   </div>
 
+  <header>
+    <h1>MoJack Media</h1>
+    <p>Unlocking the World – One Story at a Time</p>
+  </header>
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="travel.html">Travel</a>
-    <a href="history.html">History</a>
-    <a href="creative.html">Creative</a>
-    <a href="about.html">About</a>
-    <div class="theme-switch-wrapper">
-      <span>Light/Dark</span>
-      <div class="light-switch" id="theme-toggle"></div>
-    </div>
+    <a href="travel.html">Travel</a> <!-- Link to future Travel section -->
+    <a href="history.html">History</a> <!-- Link to future History section -->
+    <a href="creative.html">Stories</a> <!-- Link to future Creative section -->
+    <a href="about.html">About</a> <!-- Link to future About section -->
   </nav>
 
   <main>
-    <section class="intro-section">
+    <div class="intro">
       <h2>Welcome to MoJack Media</h2>
-      <p>We’re here to document adventures, inspire creativity, and share stories that unlock the world — whether that’s through epic travel challenges, tales from the past, or moments captured through words and photos. Explore. Laugh. Reflect. And join us on the road ahead.</p>
+      <p>From highland hikes to creative flights, MoJack Media captures every adventure, insight, and imagination. Dive into our categories below and explore what the world—and we—have to offer.</p>
+    </div>
 
-      <div class="quick-links">
-        <div class="quick-link"><a href="50fastlane.html">🚗 50 in the Fastlane</a></div>
-        <div class="quick-link"><a href="myjourneys.html">🌍 My Journeys</a></div>
-        <div class="quick-link"><a href="history.html">🏛 Historical Curiosities</a></div>
-        <div class="quick-link"><a href="creative.html">✍️ Creative Stories</a></div>
-      </div>
-    </section>
+    <div class="quick-links" style="display: flex; flex-wrap: wrap; justify-content: center;">
+      <a href="FastlaneContents.html">🚗 50 in the Fastlane</a> <!-- Corrected link to match deployed filename --> <!-- Links to Fastlane contents page -->
+      <a href="travel.html">🌍 My Journeys</a>
+      <a href="history.html">🏛 Historical Curiosities</a>
+      <a href="creative.html" style="flex: 1 1 600px; max-width: 600px; margin: 0 auto;">✍️ Creative Stories</a>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 MoJack Media. All rights reserved.<br>
-    Contact: <a href="mailto:MoJackMedia.Blogs@gmail.com" style="color: #00c9a7; text-decoration: none;">MoJackMedia.Blogs@gmail.com</a><br>
-    Follow us: 
-    <a href="https://instagram.com/mojack_media" target="_blank" rel="noopener noreferrer" style="color: #00c9a7; text-decoration: none;">Instagram</a> | 
-    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style="color: #00c9a7; text-decoration: none;">Twitter</a>
+    <p>© 2025 MoJack Media | Contact us at 
+      <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a> <!-- Change this line to update email -->
+      | Follow us on <a href="https://www.instagram.com/mojack_media" target="_blank">Instagram</a>
+    </p>
   </footer>
 
   <script>
@@ -258,6 +189,7 @@
         localStorage.setItem('theme', 'dark');
         toggle.classList.add('on');
       }
+      location.reload();
     });
   </script>
 </body>
