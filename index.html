@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoJack Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f4f4;
+      --text: #333;
+      --card: #ffffff;
+      --accent: #00c9a7;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --card: #1f1f1f;
+      --accent: #00c9a7;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .header-container {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .header-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+    }
+
+    .header-content h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .header-content p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    nav {
+      background: var(--card);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .theme-switch-wrapper {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .light-switch {
+      width: 40px;
+      height: 22px;
+      background: #ccc;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.4s;
+    }
+
+    .light-switch::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.4s;
+    }
+
+    .light-switch.on {
+      background: var(--accent);
+    }
+
+    .light-switch.on::before {
+      transform: translateX(18px);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .intro-section {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .intro-section h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      color: var(--text);
+    }
+
+    .intro-section p {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .quick-link {
+      background: var(--card);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s ease;
+      flex: 1 1 200px;
+    }
+
+    .quick-link:hover {
+      transform: translateY(-5px);
+    }
+
+    .quick-link a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      display: block;
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+
+  <div class="header-container">
+    <img src="https://i.imgur.com/UDu5HRr.jpg" alt="Snowy Mountain">
+    <div class="header-content">
+      <h1>MoJack Media</h1>
+      <p>Unlocking the World – One Story at a Time</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="travel.html">Travel</a>
+    <a href="history.html">History</a>
+    <a href="creative.html">Creative</a>
+    <a href="about.html">About</a>
+    <div class="theme-switch-wrapper">
+      <span>Light/Dark</span>
+      <div class="light-switch" id="theme-toggle"></div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="intro-section">
+      <h2>Welcome to MoJack Media</h2>
+      <p>We’re here to document adventures, inspire creativity, and share stories that unlock the world — whether that’s through epic travel challenges, tales from the past, or moments captured through words and photos. Explore. Laugh. Reflect. And join us on the road ahead.</p>
+
+      <div class="quick-links">
+        <div class="quick-link"><a href="50fastlane.html">🚗 50 in the Fastlane</a></div>
+        <div class="quick-link"><a href="myjourneys.html">🌍 My Journeys</a></div>
+        <div class="quick-link"><a href="history.html">🏛 Historical Curiosities</a></div>
+        <div class="quick-link"><a href="creative.html">✍️ Creative Stories</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 MoJack Media. All rights reserved.<br>
+    Contact: <a href="mailto:MoJackMedia.Blogs@gmail.com" style="color: #00c9a7; text-decoration: none;">MoJackMedia.Blogs@gmail.com</a><br>
+    Follow us: 
+    <a href="https://instagram.com/mojack_media" target="_blank" rel="noopener noreferrer" style="color: #00c9a7; text-decoration: none;">Instagram</a> | 
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style="color: #00c9a7; text-decoration: none;">Twitter</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const isDark = localStorage.getItem('theme') === 'dark';
+    if (isDark) toggle.classList.add('on');
+
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      if (current === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        toggle.classList.remove('on');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.classList.add('on');
+      }
+    });
+  </script>
+</body>
+</html>
