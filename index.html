@@ -141,16 +141,15 @@
     }
 
     .button-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      justify-items: center;
     }
 
     .nav-button {
-      flex: 1 1 45%;
-      max-width: 45%;
-      min-width: 150px;
+      width: 100%;
+      max-width: 300px;
       padding: 20px;
       background-color: var(--box-light);
       border-radius: 10px;
@@ -160,6 +159,7 @@
       align-items: center;
       justify-content: center;
       transition: transform 0.3s, color 0.3s;
+      text-align: center;
     }
 
     .nav-button:hover {
@@ -192,27 +192,16 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .nav-button {
+        width: 90% !important;
+        max-width: 90% !important;
         margin: 0 auto;
       }
-      .button-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
 
-      .nav-button {
-        max-width: 90% !important;
-        width: 90% !important;
-      }
-      .button-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .nav-button {
-        max-width: 90% !important;
-        width: 90% !important;
-      }
       .header {
         display: grid;
         grid-template-columns: repeat(3, auto);
@@ -228,20 +217,6 @@
       .header button:nth-child(3) { grid-area: stories; }
       .header button:nth-child(4) { grid-area: about; }
       .header label.nav-item { grid-area: toggle; }
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .button-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .nav-button {
-        max-width: 90% !important;
-        width: 90% !important;
-      }
     }
   </style>
 </head>
