@@ -58,7 +58,7 @@ body.dark-mode .box {
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../img/background.jpg'); /* Background image */
     background-size: cover;
     background-position: center;
-    padding: 100px 20px 150px;
+    padding: 50px 20px 50px;
 }
 
 .hero h1 {
@@ -241,19 +241,6 @@ footer {
 footer a {
     color: var(--accent); /* Link color */
     text-decoration: none;
-}
-
-.footer-desktop {
-display: block;
-}
-
-.footer-mobile {
-display: none;
-}
-
-.footer-desktop-copy {
-    text-align: right; /* Align text to the right */
-    margin-right: -90%; /* Optional: Add some spacing from the edge */
 }
 
 /* ========================= */

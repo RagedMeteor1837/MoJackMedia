@@ -13,13 +13,20 @@
   <!-- Local CSS for styling the page -->
   <link href="css/style.css" rel="stylesheet" type="text/css" />
 
+  <!-- Local mobile CSS for styling the page -->
+  <link href="css/mobile/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
   <!-- Hero section -->
   <div class="hero">
-    <h1>MoJack Media</h1>
+    <a href="/"><h1>MoJack Media</h1></a>
     <p>Unlocking the World – One Story at a Time</p>
+    <label style="user-select: none;" class="hero-theme-toggle">
+      Light/Dark
+      <input type="checkbox" id="themeToggle" class="theme-toggle" /> <!-- Theme toggle switch -->
+    </label>
   </div>
 
   <!-- Header navigation -->
@@ -27,11 +34,7 @@
     <a href="travel/" class="nav-item">Travel</a>
     <a href="history/" class="nav-item">History</a>
     <a href="stories/" class="nav-item">Stories</a>
-    <a href="about/" class="nav-item">About</a>
-    <label style="user-select: none;" class="nav-item">
-      Light/Dark
-      <input type="checkbox" id="themeToggle" class="theme-toggle" /> <!-- Theme toggle switch -->
-    </label>
+    <a href="about" class="nav-item">About</a>
   </div>
 
   <!-- Main content -->
@@ -51,10 +54,21 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 MoJack Media | Contact us at <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a>
-      | Follow us on <a href="https://instagram.com/mojack_media" target="_blank">Instagram</a></p>
+  <!-- Mobile Footer -->
+  <footer class="footer-mobile">
+    <p>
+      Contact us at <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a><br>
+      Follow us on <a href="https://instagram.com/mojack_media" target="_blank">Instagram</a><br><br>
+      <span class="footer-mobile-copy">© 2025 MoJack Media </span> <br> </p>
+  </footer>
+
+  <!-- Desktop Footer -->
+  <footer class="footer-desktop">
+    <p>Contact us at <a href="mailto:mojackmedia.blogs@gmail.com">mojackmedia.blogs@gmail.com</a>
+      | Follow us on <a href="https://instagram.com/mojack_media" target="_blank">Instagram</a>
+      </p>      
+      <span class="footer-desktop-copy">© 2025 MoJack Media</span>
+
   </footer>
 
   <!-- JavaScript for theme toggle -->
