@@ -1,4 +1,6 @@
-/* Define light and dark mode variables */
+/* ========================= */
+/* Global Variables          */
+/* ========================= */
 :root {
     --background-light: #f8f9fa;
     --background-dark: #121212;
@@ -12,7 +14,9 @@
     --accent: #00bfa6;
 }
 
-/* General page styling */
+/* ========================= */
+/* General Page Styling      */
+/* ========================= */
 html, body {
     margin: 0;
     padding: 0;
@@ -25,7 +29,9 @@ html, body {
     flex-direction: column;
 }
 
-/* Dark mode styles */
+/* ========================= */
+/* Dark Mode Styles          */
+/* ========================= */
 body.dark-mode {
     background-color: var(--background-dark);
     color: var(--text-dark);
@@ -35,7 +41,17 @@ body.dark-mode .nav-button {
     background-color: var(--nav-button-dark);
 }
 
-/* Hero section styling */
+body.dark-mode .header {
+    background-color: var(--box-dark);
+}
+
+body.dark-mode .box {
+    background-color: var(--box-dark);
+}
+
+/* ========================= */
+/* Hero Section              */
+/* ========================= */
 .hero {
     text-align: center;
     color: white;
@@ -56,7 +72,9 @@ body.dark-mode .nav-button {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-/* Header navigation bar styling */
+/* ========================= */
+/* Header Navigation         */
+/* ========================= */
 .header {
     display: flex;
     flex-wrap: wrap;
@@ -66,10 +84,6 @@ body.dark-mode .nav-button {
     background-color: var(--box-light); /* Light mode header background */
 }
 
-body.dark-mode .header {
-    background-color: var(--box-dark); /* Dark mode header background */
-}
-
 .nav-item {
     background: none;
     border: none;
@@ -77,13 +91,16 @@ body.dark-mode .header {
     cursor: pointer;
     color: inherit; /* Inherits text color from parent */
     padding: 5px 10px;
+    text-decoration: none; /* Remove underline for links */
 }
 
 .nav-item:hover {
     color: var(--accent); /* Highlight color on hover */
 }
 
-/* Theme toggle switch styling */
+/* ========================= */
+/* Theme Toggle Switch       */
+/* ========================= */
 .theme-toggle {
     appearance: none;
     width: 40px;
@@ -112,7 +129,9 @@ body.dark-mode .header {
     transform: translateX(20px); /* Moves the toggle knob when checked */
 }
 
-/* Main content container styling */
+/* ========================= */
+/* Main Content              */
+/* ========================= */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -128,10 +147,6 @@ body.dark-mode .header {
     transition: background-color 0.3s;
 }
 
-body.dark-mode .box {
-    background-color: var(--box-dark); /* Dark mode box background */
-}
-
 .title {
     text-align: center;
     font-size: 24px;
@@ -144,7 +159,9 @@ body.dark-mode .box {
     margin-bottom: 20px;
 }
 
-/* Grid layout for navigation buttons */
+/* ========================= */
+/* Navigation Buttons        */
+/* ========================= */
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
@@ -172,7 +189,6 @@ body.dark-mode .box {
 }
 
 .nav-button span {
-    margin-left: 5px;
     transition: color 0.3s;
 }
 
@@ -180,7 +196,14 @@ body.dark-mode .box {
     color: var(--accent); /* Highlight color on hover */
 }
 
-/* Footer styling */
+a {
+    text-decoration: none; /* Remove underline for links */
+    color: inherit; /* Inherit color from parent */
+}
+
+/* ========================= */
+/* Footer                    */
+/* ========================= */
 footer {
     background-color: var(--footer-dark); /* Footer background color */
     color: white;
@@ -194,30 +217,32 @@ footer a {
     text-decoration: none;
 }
 
-/* Responsive design for smaller screens */
+/* ========================= */
+/* Responsive Design         */
+/* ========================= */
 @media (max-width: 600px) {
     .button-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .nav-button {
-    width: 90% !important;
-    max-width: 90% !important;
-    margin: 0 auto;
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 0 auto;
     }
 
     .header {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-areas:
-        "travel history stories"
-        "about about toggle";
-    justify-content: center;
-    gap: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-areas:
+            "travel history stories"
+            "about about toggle";
+        justify-content: center;
+        gap: 10px;
     }
 
     .header button:nth-child(1) { grid-area: travel; }

@@ -1,3 +1,9 @@
+// This script manages the light/dark theme toggle functionality for the website.
+// It checks for a saved theme preference in localStorage and applies it on page load.
+// The user's preference is saved to localStorage whenever the theme is toggled, ensuring the selected theme persists across sessions.
+// -AlexanderB
+
+
 // Get the theme toggle checkbox
 const toggle = document.getElementById('themeToggle');
 
