@@ -1,0 +1,228 @@
+/* Define light and dark mode variables */
+:root {
+    --background-light: #f8f9fa;
+    --background-dark: #121212;
+    --text-light: #212529;
+    --text-dark: #f8f9fa;
+    --box-light: #ffffff;
+    --box-dark: #1f1f1f;
+    --nav-button-light: #eeecec;
+    --nav-button-dark: #2b2a2a;
+    --footer-dark: #0d1b2a;
+    --accent: #00bfa6;
+}
+
+/* General page styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-light); /* Light mode background */
+    color: var(--text-light); /* Light mode text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme toggle */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .nav-button {
+    background-color: var(--nav-button-dark);
+}
+
+/* Hero section styling */
+.hero {
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../img/background.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px 150px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+}
+
+.hero p {
+    font-size: 18px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Header navigation bar styling */
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--box-light); /* Light mode header background */
+}
+
+body.dark-mode .header {
+    background-color: var(--box-dark); /* Dark mode header background */
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: inherit; /* Inherits text color from parent */
+    padding: 5px 10px;
+}
+
+.nav-item:hover {
+    color: var(--accent); /* Highlight color on hover */
+}
+
+/* Theme toggle switch styling */
+.theme-toggle {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.theme-toggle::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:checked::before {
+    transform: translateX(20px); /* Moves the toggle knob when checked */
+}
+
+/* Main content container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1 0 auto;
+}
+
+.box {
+    background-color: var(--box-light); /* Light mode box background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .box {
+    background-color: var(--box-dark); /* Dark mode box background */
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Grid layout for navigation buttons */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px;
+    justify-items: center;
+}
+
+.nav-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    background-color: var(--nav-button-light); /* Light mode button background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, color 0.3s;
+    text-align: center;
+}
+
+.nav-button:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.nav-button span {
+    margin-left: 5px;
+    transition: color 0.3s;
+}
+
+.nav-button:hover span {
+    color: var(--accent); /* Highlight color on hover */
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--footer-dark); /* Footer background color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+footer a {
+    color: var(--accent); /* Link color */
+    text-decoration: none;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .button-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    }
+
+    .nav-button {
+    width: 90% !important;
+    max-width: 90% !important;
+    margin: 0 auto;
+    }
+
+    .header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-areas:
+        "travel history stories"
+        "about about toggle";
+    justify-content: center;
+    gap: 10px;
+    }
+
+    .header button:nth-child(1) { grid-area: travel; }
+    .header button:nth-child(2) { grid-area: history; }
+    .header button:nth-child(3) { grid-area: stories; }
+    .header button:nth-child(4) { grid-area: about; }
+    .header label.nav-item { grid-area: toggle; }
+}
