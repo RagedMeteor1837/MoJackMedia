@@ -137,6 +137,9 @@ body.dark-mode .box {
     margin: 0 auto;
     padding: 20px;
     flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .box {
@@ -145,6 +148,8 @@ body.dark-mode .box {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s;
+    max-width: 100%;
+    text-align: center;
 }
 
 .title {
