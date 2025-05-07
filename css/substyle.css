@@ -20,13 +20,13 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--background-light); /* Light mode background */
-    color: var(--text-light); /* Light mode text color */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme toggle */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 /* ========================= */
@@ -49,13 +49,18 @@ body.dark-mode .box {
     background-color: var(--box-dark);
 }
 
+body.dark-mode .hero-theme-toggle {
+    background-color: var(--box-dark);
+    color: var(--text-dark);
+}
+
 /* ========================= */
 /* Hero Section              */
 /* ========================= */
 .hero {
     text-align: center;
     color: white;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../img/background.jpg'); /* Background image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../img/background.jpg');
     background-size: cover;
     background-position: center;
     padding: 50px 20px 50px;
@@ -64,7 +69,7 @@ body.dark-mode .box {
 .hero h1 {
     font-size: 48px;
     margin: 0;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
@@ -73,24 +78,19 @@ body.dark-mode .box {
 }
 
 .hero-theme-toggle {
-    position: fixed; /* Ensures it stays in the same position even when scrolling */
-    top: 10px; /* Distance from the top of the screen */
-    right: 10px; /* Distance from the right of the screen */
+    position: fixed;
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between label and toggle switch */
-    background-color: var(--box-light); /* Optional: Add a background for better visibility */
-    color: var(--text-light); /* Light mode text color */
-    padding: 5px 10px; /* Optional: Add some padding */
-    border-radius: 5px; /* Optional: Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    z-index: 1000; /* Ensures it stays above other elements */
-}
-
-body.dark-mode .hero-theme-toggle {
-    background-color: var(--box-dark); /* Dark mode background for the toggle */
-    color: var(--text-dark); /* Dark mode text color */
+    gap: 10px;
+    background-color: var(--box-light);
+    color: var(--text-light);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 /* ========================= */
@@ -102,7 +102,7 @@ body.dark-mode .hero-theme-toggle {
     justify-content: center;
     gap: 15px;
     padding: 20px;
-    background-color: var(--box-light); /* Light mode header background */
+    background-color: var(--box-light);
 }
 
 .nav-item {
@@ -110,13 +110,13 @@ body.dark-mode .hero-theme-toggle {
     border: none;
     font-size: 16px;
     cursor: pointer;
-    color: inherit; /* Inherits text color from parent */
+    color: inherit;
     padding: 5px 10px;
-    text-decoration: none; /* Remove underline for links */
+    text-decoration: none;
 }
 
 .nav-item:hover {
-    color: var(--accent); /* Highlight color on hover */
+    color: var(--accent);
 }
 
 /* ========================= */
@@ -147,7 +147,7 @@ body.dark-mode .hero-theme-toggle {
 }
 
 .theme-toggle:checked::before {
-    transform: translateX(20px); /* Moves the toggle knob when checked */
+    transform: translateX(20px);
 }
 
 /* ========================= */
@@ -157,14 +157,14 @@ body.dark-mode .hero-theme-toggle {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    flex: 1 0 auto;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .box {
-    background-color: var(--box-light); /* Light mode box background */
+    background-color: var(--box-light);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -190,7 +190,7 @@ body.dark-mode .hero-theme-toggle {
 /* ========================= */
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-items: center;
 }
@@ -199,7 +199,7 @@ body.dark-mode .hero-theme-toggle {
     width: 100%;
     max-width: 300px;
     padding: 20px;
-    background-color: var(--nav-button-light); /* Light mode button background */
+    background-color: var(--nav-button-light);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     font-weight: bold;
@@ -211,7 +211,7 @@ body.dark-mode .hero-theme-toggle {
 }
 
 .nav-button:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
 }
 
 .nav-button span {
@@ -219,28 +219,42 @@ body.dark-mode .hero-theme-toggle {
 }
 
 .nav-button:hover span {
-    color: var(--accent); /* Highlight color on hover */
+    color: var(--accent);
 }
 
 a {
-    text-decoration: none; /* Remove underline for links */
-    color: inherit; /* Inherit color from parent */
+    text-decoration: none;
+    color: inherit;
 }
 
 /* ========================= */
 /* Footer                    */
 /* ========================= */
 footer {
-    background-color: var(--footer-dark); /* Footer background color */
+    background-color: var(--footer-dark);
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: auto;
     flex-shrink: 0;
 }
 
 footer a {
-    color: var(--accent); /* Link color */
+    color: var(--accent);
     text-decoration: none;
+}
+
+.footer-desktop {
+    display: block;
+}
+
+.footer-mobile {
+    display: none;
+}
+
+.footer-desktop-copy {
+    text-align: center;
+    font-size: 12px;
 }
 
 /* ========================= */
